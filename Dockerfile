@@ -1,9 +1,13 @@
 FROM lsioarmhf/radarr
 
 RUN \
+  wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-armhf-32bit-static.tar.xz && \
+  tar -xf ffmpeg-release-armhf-32bit-static.tar.xz -C /opt && \
+  mv /opt/ff* /opt/ffmpeg
+
+RUN \
   apt-get update && \
   apt-get install -y \
-  ffmpeg \
   git \
   python-pip \
   openssl \
